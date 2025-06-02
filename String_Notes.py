@@ -1,3 +1,4 @@
+# This file contain string notes and example
 # String : Sequence of characters with single/double quotes
 # In python char data type is not there ,even single char is considered as string only
 
