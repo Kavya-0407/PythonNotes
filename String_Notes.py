@@ -12,7 +12,7 @@ print(s)"""
 # Traceback (most recent call last):
 #   File "<main.py>", line 1
 #     s = 'This is ' symbol'
-#                          ^
+#
 # SyntaxError: unterminated string literal (detected at line 1)
 
 # 2nd way
@@ -70,12 +70,23 @@ for ch in s:
 # syntax : string[start index: end index: step increment]
 # step increment default is 1
 # Ex 1: s = "abcdefghi"
+#  0  1  2  3  4  5   6  7  8  9
+#  a  b  c  d  e  f   g  h  i  j
+# -10 -9 -8 -7 -6 -5 -4 -3 -2 -1
 # If step value is +ve move to forward direction (begin to end-1)
+# ex :s[2:9:1] output:cdefghi
 # If step value is -ve move backward direction (begin to end +1)
+# ex: s[7:4:-1] output:hgf
+# If step value is zero ,then it throws value error i.e
+# ex :s[9:0:0] - output : Value error
 # In forward direction if end value is 0 then result is always empty
+# ex: s[4:0:1] - output empty
 # In backward direction if end value is -1 the result is always empty
+#ex: s[4:-1:-2] - output empty
 # Default value of begin in forward direction is 0 and end is len(string)
 # Default value of begin in backward direction is -1 and end is -(len(s)+1)
+# Note : slice will never raise index error
+# ex: s[0:99999:1] - output is lenght of the string
 """----------------------------------------------------------------------------------------------------------------"""
 """Count() :
 syntax - string.count(substring, start, end)
@@ -112,7 +123,7 @@ l2 = [1,2,3,4,2,2,2,2]
 l3=l2.count(2)
 print(f"substring appears {l3} times")
 """
-
+"""----------------------------------------------------------------------------------------------------------------"""
 #Replace():
 
 """
@@ -142,6 +153,7 @@ print(text.replace("apples", "oranges"))
 The replacement happens from left to right.
 It is case-sensitive."""
 
+"""----------------------------------------------------------------------------------------------------------------"""
 # split()
 """
 it's essential for breaking strings into parts (often used in text processing, CSV parsing, etc.).
@@ -173,7 +185,7 @@ s = input("Enter comma-separated values: ")  # e.g., "10,20,30"
 values = s.split(",")
 print(values)
 """
-
+"""----------------------------------------------------------------------------------------------------------------"""
 """
 # join() - Joines the elements of the string
 syntax: separator.join(iterable)
@@ -316,5 +328,33 @@ print("Second: {1}, First: {0}".format("apple", "banana"))
 | Text alignment      | `"{:<10}".format("Hi")`         | `"Hi        "`  |
 """
 
+"""----------------------------------------------------------------------------------------------------------------"""
 
+# Mathematical operator  for string:
+"""
++ for concatenation
+* for repeatation
+ex 1: "durga" + "soft" = durgasoft
+ex 2: "durga" + 10 = type error  (Both should be string operand only)
+ex 2: "durge" *3 = durgadurgadurga
+ex 3: 3*"durga" = durgadurgadurga ( one argument should be string and her order does not matter)
+    """
+"""----------------------------------------------------------------------------------------------------------------"""
+# membership operator : in , not in returns bool True/False
 
+# 'd' in durga = True , z in durga = False, z not in durga = True
+#pg1: to check if the substring is present in main string or not
+"""
+s = "Kavya Prakash"
+subs ="avya"
+if subs in s:
+    print(f"{subs} is present in main string '{s}'")
+else:
+    print(f"{subs} is present in main string '{s}'")
+
+"""
+
+# comparison operator   >,>=,<,<= ,==,!= return True/false
+# ex : "durga" < "ravi" - compare using unicode value
+# To get the uicode or ascci value use ord ()  method
+# ord('d') =100 ,ord (r) =144 ,so 100<144  true
